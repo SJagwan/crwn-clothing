@@ -1,0 +1,26 @@
+.header{
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+
+    .logo{
+        height: 100%;
+        width: 60px;
+    }
+
+    .options{
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        
+        .option{
+            font-size: 20px;
+            margin: 0 5px;
+
+        }
+    }
+
+}
