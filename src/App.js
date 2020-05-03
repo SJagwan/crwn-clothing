@@ -12,6 +12,7 @@ import {selectCurrentUser} from './redux/user/user.selector'
 import CheckOutPage from './pages/checkOutPage/CheckOutPage';
 
 
+
 class App extends Component {
   
   unsubscribefromauth = null;
@@ -48,7 +49,7 @@ class App extends Component {
           <Header/>
           <Switch>
             <Route exact path="/" component={HomePage}/>
-            <Route exact path="/shop" component={ShopPage}/>
+            <Route  path="/shop" component={ShopPage}/>
             <Route exact path="/checkout" component={CheckOutPage}/>
             <Route exact path="/signinout" render={()=>this.props.currentUser ? (<Redirect to='/'/>):(<SignInOut/>)}/>
           </Switch>
