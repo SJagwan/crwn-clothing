@@ -13,6 +13,7 @@ import CheckOutPage from './pages/checkOutPage/CheckOutPage';
 
 
 
+
 class App extends Component {
   
   unsubscribefromauth = null;
@@ -34,7 +35,7 @@ class App extends Component {
       else{
         setCurrentUser(userAuth);
       }
-      
+      // addCollectionAndDocuments('collection',collectionArray.map(({title,items})=>({title,items})));
     });
   }
 
@@ -59,7 +60,7 @@ class App extends Component {
   }
 }
 const mapStateToProps=(state)=>({
-  currentUser:selectCurrentUser(state)
+  currentUser:selectCurrentUser(state),
 })
 const mapDispatchToProps = dispatch =>({
   setCurrentUser: user =>dispatch(setCurrentUser(user))
