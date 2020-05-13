@@ -2,7 +2,9 @@ import React from 'react';
 import './SignIn.scss';
 import FormInput from '../FormInput/FormInput';
 import CustomButton from '../CustomButton/CustomButton';
-import {signInWithGoogle,auth} from '../../firebase/firebase.utils';
+
+import {connect} from 'react-redux'
+import {googleSignInStart,emailSignInStart} from '../../redux/user/user.action'
 
 class SignIn extends React.Component{
     constructor(){
@@ -19,20 +21,14 @@ class SignIn extends React.Component{
     }
     handleSubmit=async(e)=>{
         e.preventDefault();
+        const {emailSignInStart}=this.props
         const {email,password}=this.state;
-        try{
-            auth.signInWithEmailAndPassword(email,password);
-            this.setState({email:"",password:""});
-
-        }
-        catch(error){
-            console.error(error);
-
-        }
-        
+        emailSignInStart(email,password);
+       
 
     }
     render(){
+        const {googleSignInStart}=this.props
         return(
             <div className="signin">
                 <h2>I already have an account</h2>
@@ -46,7 +42,7 @@ class SignIn extends React.Component{
                           value={this.state.password} handleChange={this.handleChange} label="Password"/>
                           <div className="buttons">
                                 <CustomButton type="submit">SignIn</CustomButton>
-                                <CustomButton onClick={signInWithGoogle} isGoogleSignIn>SignIn With Google</CustomButton>
+                                <CustomButton type="button" onClick={googleSignInStart} isGoogleSignIn>SignIn With Google</CustomButton>
 
                           </div>
                     
@@ -59,4 +55,11 @@ class SignIn extends React.Component{
         )
     }
 }
-export default SignIn;
+const mapDispatchToState=dispatch =>({
+    googleSignInStart:()=> dispatch(googleSignInStart()),
+    emailSignInStart:(email,password)=> dispatch(emailSignInStart({email,password}))
+
+
+})
+
+export default connect(null,mapDispatchToState)(SignIn);

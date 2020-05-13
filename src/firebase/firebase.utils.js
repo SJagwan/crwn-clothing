@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import { putResolve } from 'redux-saga/effects';
 
 const Config = 
     {
@@ -65,15 +66,25 @@ const Config =
           },{});
 
       }
+      export const getCurrentUser=()=>{
+        return new Promise((resolve,reject)=>{
+          const unsubscribe = auth.onAuthStateChanged(userAuth=>{
+            unsubscribe();
+            resolve(userAuth);
+          },reject)
+
+          })
+        }
+
 
       firebase.initializeApp(Config);
       
       export  const auth=firebase.auth();
       export  const firestore=firebase.firestore();
 
-      const provider = new firebase.auth.GoogleAuthProvider();
-      provider.setCustomParameters({prompt:'select_account'});
+      export const googleProvider = new firebase.auth.GoogleAuthProvider();
+      googleProvider.setCustomParameters({prompt:'select_account'});
 
-      export const signInWithGoogle = ()=> auth.signInWithPopup(provider);
+      // export const signInWithGoogle = ()=> auth.signInWithPopup(googleProvider);
 
       export default firebase;

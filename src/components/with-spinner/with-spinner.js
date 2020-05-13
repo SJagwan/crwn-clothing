@@ -1,4 +1,5 @@
 import React from 'react';
+import './with-spinner.scss'
 
 
 const WithSpinner = WrappedComponent => {

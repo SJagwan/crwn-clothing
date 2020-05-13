@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React from 'react';
 import './directory.scss';
 import MenuItem from '../menu-item/menu-item';
 import {connect} from 'react-redux';

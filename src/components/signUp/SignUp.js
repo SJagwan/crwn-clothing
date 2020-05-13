@@ -2,7 +2,8 @@ import React from 'react';
 import './SignUp.scss';
 import FormInput from '../FormInput/FormInput';
 import CustomButton from '../CustomButton/CustomButton';
-import {auth ,createUserProfileDoc} from '../../firebase/firebase.utils'
+import {connect} from 'react-redux';
+import {signUpStart} from '../../redux/user/user.action'
 
 class SignUp extends React.Component{
     constructor(){
@@ -22,20 +23,16 @@ class SignUp extends React.Component{
     handleSubmit= async (e)=>{
         e.preventDefault();
         const {displayName,email,password,confirmPassword}=this.state;
+        const {signUpStart}=this.props;
+        
+
+
         if(password !== confirmPassword)
         {
             alert("Password don't match");
             return;
         }
-        try{
-            const {user}=await auth.createUserWithEmailAndPassword(email,password);
-            await createUserProfileDoc(user,{displayName});
-            this.setState({displayname:"",email:"",password:"",confirmPassword:""});
-
-        }catch(error){
-            console.error(error);
-
-        }
+        signUpStart({email,password,displayName});
         
 
     }
@@ -55,7 +52,7 @@ class SignUp extends React.Component{
                     <FormInput name="password" type="password" required
                           value={this.state.password} handleChange={this.handleChange} label="Password"/>
                     <FormInput name="confirmPassword" type="password" required
-                         value={this.state.confirmPassword} handleChange={this.handleChange} label="confirmPassword"/>
+                         value={this.state.confirmPassword} handleChange={this.handleChange} label="ConfirmPassword"/>
                     
                     <CustomButton type="submit">SignUp</CustomButton>
                         
@@ -70,4 +67,8 @@ class SignUp extends React.Component{
         )
     }
 }
-export default SignUp;
+
+const mapDispatchToProps= dispatch =>({
+    signUpStart:(UserData) => dispatch(signUpStart(UserData))
+})
+export default connect(null,mapDispatchToProps)(SignUp);
