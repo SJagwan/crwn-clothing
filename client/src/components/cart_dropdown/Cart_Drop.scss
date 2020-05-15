@@ -21,9 +21,26 @@
       flex-direction: column;
       overflow: scroll;
     }
-  
-    // button {
-    //   margin-top: auto;
-    // }
-  }
-  
+
+    .custom-button{
+      margin-top: auto;
+      @media screen and (max-width:800px){
+        min-width: unset;
+        padding: 0 10px;
+      }
+
+    }
+
+    @media screen and (max-width:800px){
+      width: 200px;
+      height: 280px;
+      top:60px;
+      right: 25px;
+    }
+      
+
+        
+
+      
+
+}

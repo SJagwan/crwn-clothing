@@ -8,6 +8,8 @@
     border:1px black solid;
     margin:0 7.5px 15px;
     overflow: hidden;
+
+   
     
 
     &:hover{
@@ -25,6 +27,9 @@
 
     &.large{
         height:280px;
+        @media screen and (max-width:800px){
+            height: 200px;
+        }
     }
 
     &:first-child{
@@ -33,6 +38,8 @@
     &:last-child{
         margin-left: 7.5px;
     }
+
+
     .background-image{
         width: 100%;
         height: 100%;
@@ -65,4 +72,11 @@
         }
 
     }
+    @media screen and (max-width:800px){
+        height: 200px;
+    }
+    
+    
+   
 }
+

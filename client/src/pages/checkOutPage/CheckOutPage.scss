@@ -27,6 +27,16 @@
       margin-top: 30px;
       margin-left: auto;
       font-size: 36px;
+      @media screen and (max-width:800px){
+        margin-top: 20px;
+        font-size: 22px;
+    } 
     }
-  }
+
+    @media screen and (max-width:800px){
+      width: 90%;
+      margin: 20px auto 0;
+  } 
+}
+
   

@@ -9,11 +9,12 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-gap: 10px;
-        
-        // &.collectionItems{
-        //     margin-bottom: 30px;
+        margin: 10px;
+    
+        @media screen and (max-width:800px){
+            grid-template-columns: 1fr 1fr;
 
-        // }
+        }
 
     }
 }

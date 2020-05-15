@@ -3,13 +3,31 @@
     flex-direction: column;
     margin-bottom: 25px;
 
+    @media screen and (max-width:800px){
+      margin-bottom: 15px;
+      align-items: center;
+  }
+
     .title {
         font-size: 28px;
         margin-bottom: 25px;
+
+        @media screen and (max-width:800px){
+          font-size: 20px;
+          margin-bottom: 15px;
+      }
       }
     
       .preview {
         display: flex;
         justify-content: space-between;
+        @media screen and (max-width:800px){
+
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 15px;
+        }
+
+
       }
 }
