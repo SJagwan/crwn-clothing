@@ -1,0 +1,23 @@
+.ErrorImageOverlay{
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+        
+    .ErrorImageContainer{
+        display: inline-block;
+        width: 40vh;
+        height: 40vh;
+        background-size: cover;
+        background-position: center;
+        
+
+    }
+    .ErrorImageText{
+        font-size: 28px;
+        color: #2f8e89;
+
+    }
+}
