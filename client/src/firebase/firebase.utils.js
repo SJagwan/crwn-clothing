@@ -3,17 +3,16 @@ import 'firebase/auth';
 import 'firebase/firestore';
 import { putResolve } from 'redux-saga/effects';
 
-const Config = 
-    {
-        apiKey: "AIzaSyBsGc7Qs8fLOgfGRVa5W8oYGADrTY47WAo",
-        authDomain: "crwn-web.firebaseapp.com",
-        databaseURL: "https://crwn-web.firebaseio.com",
-        projectId: "crwn-web",
-        storageBucket: "crwn-web.appspot.com",
-        messagingSenderId: "849255987721",
-        appId: "1:849255987721:web:3ed01ecf0d6acd8fb896d8",
-        measurementId: "G-F7ZH8GWZ1Q"
-      };
+const Config = {
+  apiKey: "AIzaSyBsGc7Qs8fLOgfGRVa5W8oYGADrTY47WAo",
+  authDomain: "crwn-web.firebaseapp.com",
+  databaseURL: "https://crwn-web.firebaseio.com",
+  projectId: "crwn-web",
+  storageBucket: "crwn-web.appspot.com",
+  messagingSenderId: "849255987721",
+  appId: "1:849255987721:web:3ed01ecf0d6acd8fb896d8",
+  measurementId: "G-F7ZH8GWZ1Q"
+};
 
       export const createUserProfileDoc = async (userAuth,additionalData)=>{
         if(!userAuth) return;
