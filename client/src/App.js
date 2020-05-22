@@ -15,6 +15,7 @@ const HomePage=lazy(()=> import('./pages/HomePage/HomePage'));
 const ShopPage=lazy(()=> import('./pages/ShopPage/ShopPage'));
 const CheckOutPage=lazy(()=> import('./pages/checkOutPage/CheckOutPage'));
 const SignInOut=lazy(()=> import('./pages/signInandOut/signInOut'));
+// const ContactPage=lazy(()=>import('./pages/contactPage/ContactPage'));
 
 
 
@@ -39,6 +40,7 @@ class App extends Component {
                 <Route exact path="/" component={HomePage}/>
                 <Route  path="/shop" component={ShopPage}/>
                 <Route exact path="/checkout" component={CheckOutPage}/>
+                {/* <Route exact path="/contact" component={ContactPage}/> */}
                 <Route exact path="/signinout" render={()=>this.props.currentUser ? (<Redirect to='/'/>):(<SignInOut/>)}/>
               </Switch>
             </Suspense>

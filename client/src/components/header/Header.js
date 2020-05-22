@@ -20,7 +20,7 @@ const Header=({currentUser,hidden,signOutStart})=>{
             </Link>
             <div className="options">
                 <Link className="option" to='/shop'> Shop </Link>
-                <Link className="option" to="/contact">Contact </Link>
+                {/* <Link className="option" to="/contact">Contact </Link> */}
                     {
                         currentUser?
                         <div className="option" onClick={signOutStart}>SignOut</div>
@@ -28,7 +28,7 @@ const Header=({currentUser,hidden,signOutStart})=>{
                         <Link className="option" to="/signinout">SignIn</Link>
 
                     }
-                 <Cart_Icon/>   
+                 <Cart_Icon />   
             </div> 
             {
             hidden ? null : <Cart_Drop/>
